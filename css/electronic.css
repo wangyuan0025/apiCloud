@@ -1,0 +1,102 @@
+.search-item {
+  padding: 2.5vw 7vw 2.5vw 2.5vw;
+  position: relative;
+}
+.search-item span{
+  font-size: 4vw;
+  color:#00043d;
+}
+.search-item select{
+   direction: rtl;
+   width:80%;
+   color:#aaaaaa;
+   appearance:none;
+  -moz-appearance:none;
+  -webkit-appearance:none;
+  background: none;
+  border:none;
+  outline: none;
+}
+select::-ms-expand{display:none;}
+
+
+.search-item:after{
+  content: '';
+  display: block;
+  width: 2vw;
+  height: 3vw;
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 1vw;
+  position: absolute;
+  top: 4vw;
+  right:4vw;
+  background: url(../image/placement_detail_arrow.png) no-repeat scroll center center /100% 100%;
+}
+.house-content{
+  width: 100%;
+  overflow: hidden;
+}
+.house-box{
+  width: 100%;
+  overflow: scroll;
+}
+.house-box>div{
+  min-width: 95vw;
+}
+.house-info{
+  width: 20vw;
+  min-width: 20vw;
+  height: 10vw;
+  background-color: #ffffff;
+  box-shadow: 0vw 1vw 2vw 0vw
+    rgba(212, 225, 231, 0.7);
+  border-radius: 5vw;
+  border: solid 1px  #00043d;
+}
+.house-room{
+  color:#00043d;
+  font-size: 3vw;
+  text-align: center;
+  margin-top: 2vw;
+}
+.house-area{
+  color: #00043d;
+  font-size: 2vw;
+  text-align: center;
+}
+.electronic-house-content {
+  padding:5vw 0 0 2.5vw;
+}
+.floor-box{
+  width: 8vw;
+  background-color:rgba(0,0,0,.2);
+  border-radius: 4vw;
+  margin-right: 2vw;
+
+}
+.house-box>div{
+  margin-bottom: 3vw;
+
+}
+.house-info{
+  margin-right: 2vw;
+}
+.floor-box li{
+  color:#fff;
+  font-size: 3vw;
+  height:12vw;
+  line-height: 12vw;
+  text-align: center;
+}
+.has-placement{
+  background-color: rgba(212,225,231,1);
+  border:none;
+}
+.no-info{
+  background: #f0f0f0;
+  border: none;
+}
+.has-placement p{
+  color:#fff;
+}

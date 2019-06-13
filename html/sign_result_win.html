@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,initial-scale=1.0,width=device-width" />
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>签约结果</title>
+    <link rel="stylesheet" href="../css/common.css">
+    <style>
+        .sign-tab {
+            background: #4c65ff;
+            height: 12vw;
+            padding: 1vw 2.5vw 0;
+        }
+        .sign-tab>div{
+          flex:1;
+          text-align: center;
+        }
+        .sign-tab-item {
+            color: #b9c3ff;
+            font-size: 4vw;
+            position: relative;
+        }
+
+        .active {
+            color: #fff;
+        }
+
+        .active:after {
+            content: '';
+            display: block;
+            width: 10vw;
+            height: 0.5vw;
+            background-color: #ffffff;
+            position: absolute;
+            top: 7.5vw;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="search-header">
+        <div class="header flex-wrap" id="header">
+            <p class="arrow-left" tapmode onclick="api.closeWin()">
+            </p>
+            <div class="header-title">签约结果</div>
+        </div>
+        <div class="flex-wrap sign-tab">
+            <div class="sign-tab-item active placement-type">产权调换协议</div>
+            <div class="sign-tab-item">补偿明细表</div>
+        </div>
+    </div>
+    <script type="text/javascript" src="../plugin/jquery-1.8.0.min.js"></script>
+    <script type="text/javascript" src="../script/common.js"></script>
+    <script>
+        window.addEventListener('apiready', function() {
+            var params = api.pageParam,
+                height = $('.search-header').outerHeight(),
+                placementUrl,
+                name;
+            if (params.type == 1) { /*货币安置协议*/
+               placementUrl = 'widget://html/currency_agreement_frm.html';
+               name='currency';
+               $('.placement-type').html('货币安置协议');
+            } else if (params.type == 2) { /*产权调换协议*/
+                placementUrl = 'widget://html/property_agreement_frm.html';
+                 name='property';
+                 $('.placement-type').html('产权调换协议');
+
+            } else if (params.type == 3) { /*货币安置协议和后续安置协议*/
+                 placementUrl = 'widget://html/follow_up_placement_frm.html';
+                  name='followUp';
+                  $('.placement-type').html('货币安置/后续安置协议');
+            }
+            console.log(JSON.stringify(params))
+            api.openFrameGroup({
+                name: 'signGroup',
+                rect: {
+                    x: 0,
+                    y: height,
+                    w: 'auto',
+                    h: 'auto'
+                },
+                scrollEnabled: true,
+                frames: [{
+                    name: name,
+                    url: placementUrl,
+                    bgColor: '#fff',
+                      pageParam:params
+                }, {
+                    name: 'compensation',
+                    url: 'widget://html/compensation_table_frm.html',
+                    bgColor: '#fff',
+                      pageParam:params
+                }],
+
+            }, function(ret, err) {
+                var index = ret.index;
+                $('.sign-tab-item').removeClass("active");
+                $('.sign-tab-item').eq(index).addClass("active");
+                changeFrame(index, height);
+            });
+
+        })
+        $('.sign-tab-item').click(function() {
+            var index = $(this).index(),
+                height = $('.search-header').outerHeight();
+            $(this).addClass('active').siblings('.active').removeClass('active');
+            changeFrame(index, height);
+            api.setFrameGroupIndex({
+                name: 'signGroup',
+                index: index,
+            });
+
+        })
+
+        function changeFrame(index, height) {
+            api.setFrameGroupAttr({
+                name: 'signGroup',
+                rect: {
+                    x: 0,
+                    y: height,
+                    w: 'auto',
+                    h: 'auto'
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>

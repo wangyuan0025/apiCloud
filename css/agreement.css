@@ -1,0 +1,143 @@
+.application-template{
+  padding: 5vw 0;
+}
+.thePlacementContainer {
+    width: 100%;
+    padding: 0 2.5vw;
+    overflow-x: hidden;
+}
+
+.thePlacementContainer p {
+    font-size: 3vw;
+}
+
+.thePlacementContainer h2 {
+    width: 100%;
+    text-align: center;
+    font-size: 3vw;
+}
+
+.thePlacementContainer h3 {
+    font-size: 3vw;
+}
+
+.thePlacementContainer h2 div {
+    margin: 0 auto;
+
+}
+
+.thePlacementContainer .titleTwo {
+    /*width: 80%;*/
+    text-align: center;
+    /*margin: 0 auto;*/
+      font-size: 3vw;
+}
+
+.textIndent {
+    text-indent: 5vw;
+    font-size: 3vw;
+}
+
+.textLeft {
+    width: 100%;
+    text-align: right;
+    font-size: 3vw;
+}
+.compensationDelaitContainer{
+  padding:  2.5vw;
+}
+.compensationDelaitContainer h2, .compensationDelaitContainer td, .compensationDelaitContainer th,.compensationDelaitContainer span,.compensationDelaitContainer div{
+    font-size: 3vw;
+}
+
+.compensationDelaitContainer table, th, td {
+    border: 1px solid black;
+    text-align: center;
+}
+
+.compensationDelaitContainer table {
+    border-collapse: collapse
+}
+
+.tableHeadMsg {
+    width: 100%
+}
+
+.floatLeft {
+    float: left
+}
+
+.textCenter {
+    text-align: center
+}
+
+.floatRigth {
+    float: right
+}
+
+.tableFootDiv {
+    width: 100%;
+    border-collapse: collapse;
+    border: 0px
+}
+
+.tableFootDiv td {
+    border-color: #ffffff;
+    border-right: 1px solid black
+}
+
+.tableFootDiv th {
+    border-color: #ffffff;
+    border-right: 1px solid black;
+    border-bottom: 1px solid
+}
+
+.tableFootDiv tr th:last-child {
+    border-color: #ffffff;
+    border-bottom: 1px solid
+}
+
+.tableFootDiv tr td:last-child {
+    border-color: #ffffff;
+    line-height: 100px
+}
+
+.compensationDelaitContainer .footForm {
+    width: 100%
+}
+
+.compensationDelaitContainer .footForm :first-child {
+    display: inline-block;
+    width: 55%
+}
+
+.compensationDelaitContainer .footForm :last-child {
+    display: inline-block;
+    width: 40%
+}
+
+.padding0Margin0 {
+    padding: 0;
+    margin: 0
+}
+.compensation-title {
+    text-align: center;
+}
+
+.compensation-table-box {
+    width: 100%;
+    overflow: auto;
+    padding: 2.5vw;
+}
+
+.compensation-table {
+    border-collapse: collapse;
+    min-width: 95vw;
+}
+
+.compensation-table td {
+    border: 1px solid #000;
+    font-size: 3vw;
+    padding: 1vw;
+    text-align: center;
+}

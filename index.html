@@ -1,0 +1,184 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,initial-scale=1.0,width=device-width" />
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>毕节征收App</title>
+    <link rel="stylesheet" href="css/common.css">
+    <style>
+        .index-title {
+            font-size: 5vw;
+            font-weight: normal;
+            font-stretch: normal;
+            line-height: 5vw;
+            color: #ffffff;
+            text-align: center;
+        }
+
+        .index-header {
+            height: 36vw;
+            padding: 10vw 0 2.5vw;
+            background: url(image/header_bg.png) no-repeat;
+        }
+
+        .search-box {
+            height: 11vw;
+            background: #fff;
+            border-radius: 5vw;
+            width: 90%;
+            margin: 4.5vw auto;
+            position: relative;
+        }
+
+        .search-input {
+            width: 100%;
+            height: 100%;
+            border-radius: 5vw;
+            border: none;
+            outline: none;
+            background: none;
+            text-indent: 12vw;
+            font-size: 4vw;
+        }
+
+        .search-icon {
+            width: 6vw;
+            height: 6vw;
+            display: inline-block;
+            position: absolute;
+            left: 3vw;
+            top: 2.5vw;
+            background: url(image/search.png) no-repeat;
+            background-size: 100%;
+            z-index: 100;
+        }
+
+        .index-section>div {
+            width: 50%;
+            padding: 4vw 0;
+            border-bottom: 1px solid #e5e5e5;
+        }
+
+        .index-section>div:nth-child(odd) {
+            border-right: 1px solid #e5e5e5;
+        }
+
+        .index-img {
+            width: 14vw;
+            height: 16vw;
+            margin: 4vw auto;
+        }
+
+        .index-img>img {
+            width: 100%;
+        }
+
+        .index-section p {
+            font-size: 4vw;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="index-header">
+        <p class="index-title">征地拆迁安置管理系统</p>
+        <div class="search-box">
+            <span class="search-icon"></span>
+            <input type="text" class="search-input" placeholder="输入身份证查询进度">
+        </div>
+    </header>
+
+    <section class="flex-wrap index-section wrap">
+        <div tapmode class="index-item" data-type="policy" data-title="政策公示">
+            <p class="index-img"><img src="image/policy.png" alt=""></p>
+            <p class="text-center">政策公开</p>
+        </div>
+        <div tapmode class="index-item" data-type="announcement" data-title="公示公告">
+            <p class="index-img"><img src="image/announcement.png" alt=""></p>
+            <p class="text-center">公示公告</p>
+        </div>
+        <div tapmode class="index-item" data-type="house" data-title="房源公开">
+            <p class="index-img"><img src="image/house.png" alt=""></p>
+            <p class="text-center">房源公开</p>
+        </div>
+        <div tapmode class="index-item" data-type="placement" data-title="安置查询">
+            <p class="index-img"><img src="image/placement.png" alt=""></p>
+            <p class="text-center">安置查询</p>
+        </div>
+    </section>
+</body>
+<script type="text/javascript" src="plugin/jquery-1.8.0.min.js"></script>
+<script type="text/javascript" src="./script/common.js"></script>
+
+<script type="text/javascript">
+    window.addEventListener('apiready', function() {
+        $('body').on('click', '.index-item', function() {
+            var type = $(this).data('type'),
+                title = $(this).data('title');
+            if (type == "house") {
+                openWindow('policy', 'widget://html/win.html', {
+                    title: title,
+                    type: type
+                })
+
+            } else {
+                openWindow('policy', 'widget://html/common_search_win.html', {
+                    title: title,
+                    type: type
+                })
+
+            }
+        });
+        $('body').on('click', '.search-icon', function(e) {
+            var val = $('.search-input').val();
+            if (val.length == 18) {
+              getMorevalInfo(val);
+            }
+        });
+        $(".search-input").keyup(function(event) {
+            var val = $(this).val();
+            if (event.which === 13 || val.length == 18) {
+              getMorevalInfo(val);
+
+
+            }
+        });
+        function getMorevalInfo(val){
+          openLoader();
+          var data = {
+              values: {
+                  idcard: val
+              }
+          };
+
+          ajax('index/Mobile/confirmstatus', data, 'get', function(ret, err) {
+              console.log(JSON.stringify(err))
+              if (err) {
+                  closeLoader();
+                  var status = err.body;
+                  openWindow('removal', 'widget://html/win.html', {
+                      title: '拆迁信息',
+                      type: 'removal',
+                      keyWords: val,
+                      status: status
+                  })
+
+              } else {
+                  closeLoader();
+                  showToast('无查询结果');
+              }
+
+              console.log(status);
+
+              if (ret) {
+
+              }
+          })
+        }
+
+    })
+</script>
+
+</html>

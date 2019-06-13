@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,initial-scale=1.0,width=device-width" />
+  <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+  <title>电子房源</title>
+  <link rel="stylesheet" href="../css/common.css">
+  <link rel="stylesheet" href="../css/electronic.css">
+</head>
+<body>
+    <section>
+      <!-- 电子房源列表 -->
+        <div class="electronic-box">
+            <!-- 搜索条件 -->
+
+            <div class="border-bottom-1px flex-wrap justify-content search-item">
+                <span>房屋类型</span>
+                <select name="house_type"class="house-type">
+                  <option value="0">请选择房屋类型</option>
+                  <option value="1">安置房源</option>
+                  <option value="2">社会房源</option>
+                </select>
+            </div>
+            <div class="border-bottom-1px flex-wrap justify-content search-item">
+                <span>用途</span>
+                <select name="house_use" class="house-use">
+                  <option value="0">请选择房屋用途</option>
+                  <option value="1">住宅</option>
+                  <option value="2">商业</option>
+                </select>
+            </div>
+            <div class="border-bottom-1px flex-wrap justify-content search-item">
+                <span>栋号</span>
+                <select name="" class="building-number">
+                    <option value="0">请选择栋号</option>
+                  <!-- <option value="1">1栋</option> -->
+                </select>
+            </div>
+            <div class="border-bottom-1px flex-wrap justify-content search-item">
+                <span>单元号</span>
+                <select name="" class="unit">
+                  <option value="0">请选择单元</option>
+                </select>
+            </div>
+            <div class="electronic-house-content flex-wrap">
+                <!-- <ul class="floor-box">
+                  <li>1楼</li>
+                  <li>2楼</li>
+                  <li>3楼</li>
+                </ul>
+                <div class="house-content">
+                  <div class="house-box">
+                      <div class="flex-wrap">
+                        <div class="house-info">
+                          <p class="house-room">1-1-2-1</p>
+                          <p class="house-area">1232㎡</p>
+                        </div>
+                        <div class="house-info">
+                          <p class="house-room">1-1-2-1</p>
+                          <p class="house-area">1232㎡</p>
+                        </div>
+                        <div class="house-info">
+                          <p class="house-room">1-1-2-1</p>
+                          <p class="house-area">1232㎡</p>
+                        </div>
+                        <div class="house-info">
+                          <p class="house-room">1-1-2-1</p>
+                          <p class="house-area">1232㎡</p>
+                        </div>
+                        <div class="house-info has-placement">
+                          <p class="house-room">1-1-2-1</p>
+                          <p class="house-area">已安置</p>
+                        </div>
+                        <div class="house-info has-placement">
+                          <p class="house-room">1-1-2-1</p>
+                          <p class="house-area">已安置</p>
+                        </div>
+                        <div class="house-info no-info">
+
+                        </div>
+                      </div>
+                      <div class="flex-wrap">
+                        <div class="house-info">
+                          <p class="house-room">1-1-2-1</p>
+                          <p class="house-area">1232㎡</p>
+                        </div>
+                      </div>
+                  </div>
+                </div> -->
+
+            </div>
+        </div>
+    </section>
+    <script type="text/x-dot-template" id="tpl-electronic">
+        <ul class="floor-box">
+            {{for(var x in it.houses){}}
+              <li>{{=Number(x)}}楼</li>
+            {{}}}
+
+        </ul>
+        <div class="house-content">
+          <div class="house-box">
+            {{for(var x in it.houses){}}
+              <div class="flex-wrap">
+                {{~it.houses[x]:value:index}}
+                {{?value instanceof Array}}
+                  <div class="house-info no-info">
+
+                  </div>
+                  {{?? value.house_status==1}}
+                  <div class="house-info">
+                    <p class="house-room">{{=value.room_number}}</p>
+                    <p class="house-area">{{=value.area}}㎡</p>
+                  </div>
+                  {{??}}
+                  <div class="house-info has-placement">
+                    <p class="house-room">{{=value.room_number}}</p>
+                    <p class="house-area">已安置</p>
+                  </div>
+                {{?}}
+
+                {{~}}
+
+              </div>
+            {{}}}
+
+          </div>
+        </div>
+
+    </script>
+    <script type="text/javascript" src="../plugin/jquery-1.8.0.min.js"></script>
+    <script type="text/javascript" src="../plugin/doT.js"></script>
+    <script type="text/javascript" src="../script/common.js"></script>
+    <script type="text/javascript" src="../script/electronic.js"></script>
+</body>
+</html>

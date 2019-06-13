@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,initial-scale=1.0,width=device-width" />
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>拆迁信息</title>
+    <link rel="stylesheet" href="../css/common.css">
+    <style>
+        .removeal-header {
+            background-image: url(../image/header_img.png);
+        }
+
+        .removeal-progress {
+            margin-top: 8vw;
+        }
+
+        .removeal-progress>div {
+            font-size: 3vw;
+            color: #95a4ff;
+            flex: 1;
+            text-align: center;
+            position: relative;
+            padding: 4vw 0;
+        }
+
+        .removeal-status:before {
+            content: '';
+            display: block;
+            height: 1vw;
+            background-color: #5c73ff;
+            border-radius: 1vw;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+        }
+
+        .removeal-status:not(:last-child):before {
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+        }
+
+        .removeal-status:not(:first-child):before {
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+        }
+
+        .removeal-status:after {
+            content: '';
+            display: block;
+            width: 3vw;
+            height: 3vw;
+            background: url(../image/progrss_circle.png) no-repeat scroll center center /100% 100%;
+            position: absolute;
+            left: 41%;
+            top: -1vw;
+        }
+
+        .removeal-status.current-status {
+            color: #fff;
+        }
+
+        .current-status:after {
+            background-image: url(../image/current_status.png);
+        }
+
+        .compensation-title {
+            text-align: center;
+        }
+
+        .compensation-table-box {
+            width: 100%;
+            overflow: auto;
+            padding: 2.5vw;
+        }
+
+        .compensation-table {
+            border-collapse: collapse;
+            min-width: 95vw;
+        }
+
+        .compensation-table td {
+            border: 1px solid #000;
+            font-size: 3vw;
+            padding: 1vw;
+            text-align: center;
+        }
+
+        .compensation-box {
+            margin-top: 3vw;
+        }
+    </style>
+</head>
+
+<body>
+    <section>
+        <div class="placement-header removeal-header">
+            <div class="person-info-box">
+                <p class="text-center text-white target-name">李四</p>
+                <p class="text-center text-white margin-t-10 target-idcard">433122199001210003</p>
+            </div>
+            <div class="flex-wrap removeal-progress">
+                <div class="removeal-status">
+                    确权中
+                </div>
+                <div class="removeal-status">待入户</div>
+                <div class="removeal-status current-status">待选房</div>
+                <div class="removeal-status">待签约</div>
+                <div class="removeal-status">待结算</div>
+                <div class="removeal-status">已结算</div>
+            </div>
+        </div>
+        <div class="compensation-box">
+            <!-- <div class="compensation-title">
+                房屋征收补偿项目明细表
+            </div>
+            <div class="compensation-table-box">
+                <table class="compensation-table">
+
+                    <tr>
+                        <td>补偿项目</td>
+                        <td>计算单位</td>
+                        <td>计算数量</td>
+                        <td>补偿单价(元)</td>
+                        <td>补偿金额</td>
+                        <td>备注</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </table>
+            </div> -->
+
+        </div>
+    </section>
+    <script type="text/x-dot-template" id="tpl-compensation">
+      <div class="compensation-title">
+          {{=it.confrimInfo.target_name}}房屋征收补偿项目明细表
+      </div>
+      <div class="compensation-table-box">
+          <table class="compensation-table">
+
+              <tr>
+                  <td>补偿项目</td>
+                  <td>计算单位</td>
+                  <td>计算数量</td>
+                  <td>补偿单价(元)</td>
+                  <td>补偿金额(元)</td>
+                  <td>备注</td>
+              </tr>
+              {{for(var x in it.houseInfo){}}
+                {{?it.houseInfo[x].unit}}
+                  <tr>
+                      <td>{{=it.houseInfo[x].name}}</td>
+                      <td>{{=it.houseInfo[x].unit}}</td>
+                      <td>{{=it.houseInfo[x].account}}</td>
+                      <td>{{=it.houseInfo[x].unit_price}}</td>
+                      <td>{{=it.houseInfo[x].money}}</td>
+                      <td>{{=it.houseInfo[x].remark}}</td>
+                  </tr>
+                  {{??}}
+                  <tr>
+                      <td colspan="4">{{=it.houseInfo[x].name}}</td>
+                      <td>{{=it.houseInfo[x].money}}</td>
+                      <td></td>
+                  </tr>
+                {{?}}
+
+              {{}}}
+              {{?it.chooseInfo.title}}
+              <tr>
+                  <td colspan="6">{{=it.chooseInfo.title}}</td>
+              </tr>
+              <tr>
+                  <td>原房面积</td>
+                  <td>选房号</td>
+                  <td>选房总面积</td>
+                  <td>房源总价</td>
+                  <td colspan="2">{{=it.chooseInfo.listTitle}}</td>
+              </tr>
+              <tr>
+                  <td>{{=it.chooseInfo.confirmArea}}</td>
+                  <td>{{=it.chooseInfo.room_number}}</td>
+                  <td>{{=it.chooseInfo.chooseArea}}</td>
+                  <td>{{=it.chooseInfo.choose_house_money}}</td>
+                  <td colspan="2">{{=it.chooseInfo.listTotal}}</td>
+              </tr>
+              {{?}}
+          </table>
+      </div>
+    </script>
+    <script type="text/javascript" src="../plugin/jquery-1.8.0.min.js"></script>
+    <script type="text/javascript" src="../plugin/doT.js"></script>
+    <script type="text/javascript" src="../script/common.js"></script>
+    <script>
+        window.addEventListener('apiready', function() {
+            var params = api.pageParam,
+                status = params.status,
+                data = {
+                    values: {
+                        idcard: params.keyWords
+                    }
+                };
+            $('.removeal-status').eq(status - 1).addClass('current-status').siblings().removeClass('current-status');
+            openLoader();
+            ajax('index/Mobile/confirminfo',data,'get',function(ret,err){
+              console.log(JSON.stringify(err))
+              if(ret){
+                closeLoader();
+                $('.target-name').html(ret.confrimInfo.target_name);
+                $('.target-idcard').html(ret.confrimInfo.target_idcard);
+                var tpl_compensation=doT.template($('#tpl-compensation').html());
+                $('.compensation-box').html(tpl_compensation(ret));
+                console.log(JSON.stringify(ret))
+              }
+
+            })
+
+
+        })
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,initial-scale=1.0,width=device-width" />
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>安置查询</title>
+    <link rel="stylesheet" href="../css/common.css">
+    <style>
+        .check-btn {
+            width: 17vw;
+            height: 8vw;
+            line-height: 7.5vw;
+            border-radius: 4vw;
+            border: 1px solid #4c65ff;
+            text-align: center;
+            color: #4c65ff;
+            font-size: 4vw;
+        }
+
+        .personal-info p {
+            font-size: 5vw;
+            color: #000000;
+        }
+
+        .personal-info .personal-idcard {
+            color: #888;
+            font-size: 4vw;
+            margin-top: 1vw;
+        }
+
+        .placement-item {
+            height: 18vw;
+            padding: 0 5vw;
+        }
+    </style>
+</head>
+
+<body>
+    <section id="placement-list">
+        <!-- <div class="flex-wrap align-center justify-content placement-item border-bottom-1px">
+            <div class="personal-info">
+                <p class="personal-name">张三</p>
+                <p class="personal-idcard">430103199111218888</p>
+            </div>
+            <div class="check-btn" tapmode>查看</div>
+        </div> -->
+    </section>
+    <script type="text/x-dot-template" id="tpl-placement">
+        {{for(var x in it){}}
+        <div class="flex-wrap align-center justify-content placement-item border-bottom-1px" data-confirm-id="{{=it[x].confirm_id}}" data-agreement-id="{{=it[x].agreement_id}}" data-name="{{=it[x].target_name}}">
+            <div class="personal-info">
+                <p class="personal-name">{{=it[x].target_name}}</p>
+                <p class="personal-idcard">{{=it[x].target_idcard}}</p>
+            </div>
+            <div class="check-btn" tapmode>查看</div>
+        </div>
+        {{}}}
+    </script>
+    <script type="text/javascript" src="../plugin/jquery-1.8.0.min.js"></script>
+    <script type="text/javascript" src="../plugin/doT.js"></script>
+    <script type="text/javascript" src="../script/common.js"></script>
+    <script>
+        window.addEventListener('apiready', function() {
+            openLoader();
+            var keyWords = '';
+            getPlacementList(keyWords);
+
+            api.addEventListener({
+                name: 'searchList'
+            }, function(ret, err) {
+                if (ret) {
+                  console.log(JSON.stringify(ret))
+                  // alert(ret.value.keyWords)
+                    getPlacementList(ret.value.keywords);
+                    keyWords = ret.value.keywords;
+                    //  alert( JSON.stringify( ret ) );
+                } else {
+                    alert(JSON.stringify(err));
+                }
+            });
+            api.setRefreshHeaderInfo({
+                visible: true,
+                loadingImg: '../image/loading_more.gif',
+                bgColor: '#ccc',
+                textColor: '#fff',
+                textDown: '下拉刷新...',
+                textUp: '松开刷新...',
+                showTime: true
+            }, function(ret, err) {
+                getPlacementList(keyWords);
+                setTimeout('api.refreshHeaderLoadDone()', '500');
+            });
+
+
+        });
+
+        function getPlacementList(keyWords) {
+            var data = {
+                values: {
+                    search: keyWords
+                }
+            };
+
+            // alert(keyWords)
+            console.log(JSON.stringify(data))
+
+            ajax('index/Mobile/placementQueryList', data, 'get', function(ret, err) {
+                if (ret) {
+                    console.log(JSON.stringify(ret))
+                    closeLoader();
+                    var tpl_placement = doT.template($('#tpl-placement').html());
+                    $('#placement-list').html(tpl_placement(ret));
+                }
+
+            })
+        }
+        $('body').on('click', '.placement-item', function(e) {
+          var agreement_id=$(this).data('agreement-id'),
+           name=$(this).data('name');
+            openWindow('placement_detail', 'widget://html/win.html', {
+                title: '安置详情-'+name,
+                type: 'placement_detail',
+                agreement_id:agreement_id
+
+
+            })
+
+        })
+    </script>
+</body>
+
+</html>

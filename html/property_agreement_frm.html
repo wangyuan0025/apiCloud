@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,initial-scale=1.0,width=device-width" />
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>产权调换协议</title>
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/agreement.css">
+
+</head>
+
+<body>
+    <section id="agreement-template">
+       <!--  <div class="application-template">
+            <div class="thePlacementContainer">
+                <h2><div> <u>${res.project_name}</u> 房屋征收补偿安置协议</div></h2>
+                <div class="titleTwo">赫 <u>${res.zone}</u> 征安字〔 <u>${res.year}</u> 〕 <u>${res.agreement_num}</u> 号</div>
+                <p>
+                    <p>征收补偿部门（以下简称甲方）：</p>
+                    <p>单位名称：赫章县房屋征收与补偿安置办公室</p>
+                    <p>地 址：赫章县县委党校内</p>
+                    <p>法定代表人：何煜达</p>
+                    <p>被征收人（以下简称乙方）：<u>${res.target_name}</u></p>
+                    <p>身份证号码：<u>${res.target_idcard}</u></p>
+                    <p>电 话：<u>${res.target_phone}</u></p>
+                </p>
+                <p class="textIndent">
+                    为推动城市棚户区改造，依法保护城市棚户区内房屋被征收人的合法权益，根据《国务院关于加快棚户区改造工作的意见》（国发〔2013〕25号）、《国有土地上房屋征收与补偿条例》（中华人民共和国国务院令第590号）和《赫章县城市房屋征收与补偿办法》（赫府办发〔2017〕46号），甲、乙双方在平等、自愿、协商一致的基础上，就乙方被征收房屋安置补偿事宜达成如下协议：
+                </p>
+                <p>
+                    <h3>第一条  乙方房屋及附属物情况</h3>
+                    <div class="textIndent">1、乙方房屋土地性质为集体，房屋用途为住房，建筑结构为<u>${res.dwellingStructure}</u> ，建筑面积 <u>${res.dwellingArea}</u> 平方米；房屋用途为商业，建筑结构 <u>${res.shopStructure}</u> ， <u>${res.shopArea}</u> 平方米。</div>
+                    <div class="textIndent">2、乙方房屋附属物见《 <u>${res.project_name}</u> 房屋征收补偿项目明细表》，该明细表属协议组成部分。</div>
+                </p>
+                <p>
+                    <h3>第二条  补偿方式 </h3>
+                    <div class="textIndent">1、乙方自愿选择产权调换方式进行补偿</div>
+                    <div class="textIndent">2、产权调换以征一还一的方式进行，乙方安置面积为被征收房屋建筑面积。</div>
+                </p>
+                <p>
+                    <h3>第三条 房屋及门面选定 </h3>
+                    <div class="textIndent">根据《 <u>${res.project_name}</u> 房屋征收与补偿安置方案》的规定，乙方在 <u>${res.building}</u> 选购 <u>${res.chooseHouseNum}</u> 套房屋。</div>
+                    <div class="textIndent">`+ threeTitle+ `</div>
+                </p>
+                <p>
+                    <h3>第四条 奖励 </h3>
+                    <div class="textIndent">乙方在甲方规定的期限内腾空房屋，按被征收房屋面积进行奖励。</div>
+                    <div class="textIndent">1、根据签约时间，乙方应得奖励面积 <u>${res.awardArea}</u> 平方米。</div>
+                    <div class="textIndent">2、乙方须在甲方规定的期限内自行通知甲方确认、验收，并由甲方出具房屋腾空验收证明。不按规定时限搬迁的，不予奖励。</div>
+                </p>
+                <p>
+                    <h3>第五条 房屋附属物的补偿 </h3>
+                    <p>
+                        <div class="textIndent">房屋附属物和装饰装修的补偿，按《赫章县城镇建设建构筑物征收补偿标准》（赫发[2013]229）规定进行货币补偿，由甲方一次性给付乙方房屋附属物和装饰装修补偿金￥ <u>${res.subsidiary_money}</u> 元（大写： <u>${res.subsidiary_money_cny}</u> ）。（具体项目见《 <u>${res.project_name}项目名称</u> 房屋征收补偿项目明细表》</div>
+                    </p>
+                </p>
+                <p>
+                    <h3> 第六条 搬迁过渡方式 </h3>
+                    <p>
+                        <div class="textIndent">1、住房临时安置过渡期为两年，以腾空交房申请签字之日起计算。过渡临时安置补助费以被征收房屋的主体面积为依据，按 <u>${res.transition_money_standard}</u> 元/平方米/月计算。即：</div>
+                        <div class="textIndent"> <u>${res.confirmHouseArea}</u> 平方米× <u>${res.transition_money_standard}</u> 元/平方米/月×24个月= <u>${res.transition_money}</u> （大写： <u>${res.transition_money_cny}</u> ）</div>
+                        <div class="textIndent">2、搬家费分为搬出和搬入2次。搬家费以被征收主体房屋合法建筑面积为依据，按 <u>${res.removal_money_standard}</u> 元/平方米/次计算，共计￥ <u>${res.removal_money}</u> 元（大写： <u>${res.removal_money_cny}</u> ）。</div>
+                    </p>
+                </p>
+                <p>
+                    <h3>第七条 结算</h3>
+                    <p class="textIndent">根据《 <u>${res.project_name}项目名称</u> 房屋征收与补偿安置方案》的规定，乙方超安面积为：<u>${res.super_area}</u>平方米，乙方应付给甲方 <u>${res.super_money}</u> 元。</p>
+                    <div class="textIndent">甲方应付乙方金额合计: 过渡费+搬家费+附属物补偿金额+主体房屋货币补偿金额+停产停业费+奖励面积金额:<u>${res.transition_money}</u>元+<u>${res.removal_money}</u>元+<u>${res.subsidiary_money}</u>元+<u>${res.mian_house_money}</u>元+<u>${res.suspension_money}</u>元+<u>${res.area_award_money}</u>元=<u>${res.close_money}</u>元(大写:
+                        <u>${res.close_money_cny}</u>)。</div>
+                    <p class="textIndent">乙方将房屋腾空交给甲方并由甲方开出房屋腾空证明，乙方可以领取附属设施补偿费、搬家费。</p>
+                    `+ sevenTitle +`
+                    <p class="textIndent">${res.title}：<u>${res.title_money}</u>元（大写：<u>${res.title_money_cny}</u>）。
+                        <p>
+                        </p>
+                        <p>
+                            <h3>第八条  搬迁</h3>
+                            <p class="textIndent">
+                                <div class="textIndent">1、乙方在签订协议5日内，将房屋腾空完毕交由甲方拆除。</div>
+                                <div class="textIndent">2、乙方必须在签订协议5日内提供有效的房屋产权证和土地使用证交甲方审查送有关部门注销（若有临时建筑的，还应出具未超过批准期限的临时建筑的使用权证）。</div>
+                                <div class="textIndent">3、甲方对被征收房屋的水电设施按标准给予移户安装补助费。转户、报停、销户、开户手续等乙方自行到有关部门申请办理，并结清已使用的相关费用。</div>
+                                <div class="textIndent">4、乙方被征收房屋上如有产权、债务等纠纷和存在担保物权的，由乙方自行处理，甲方概不负责。</div>
+                            </p>
+                        </p>
+                        <p>
+                            <h3>第九条 违约责任</h3>
+                            <div class="textIndent">乙方不按本合同腾空交付房屋的，甲方可以拆除乙方房屋及附属设施，因此产生的一切费用由乙方承担。</div>
+                            <div class="textIndent">1、若有一方违约造成对方损失者，必须赔偿对方损失。</div>
+                            <div class="textIndent">2、乙方逾期不办理房屋腾空交付手续的，本协议签订之日起 15日作为房屋腾空交付时间，双方不再办理房屋腾空交付手续，乙方未搬离的物品视作放弃，任由甲方处置。</div>
+                        </p>
+                        <p>
+                            <h3>第十条</h3>
+                            <div class="textIndent">本协议在履行过程中发生的争议，由当事人协商解决，协商不成或不愿协商的，可依法向赫章县人民政府申请行政复议或向人民法院提起行政诉讼。</div>
+                        </p>
+                        <p>
+                            <h3>第十一条</h3>
+                            <div class="textIndent">本协议自双方签字盖章之日起生效。本协议一式六分，甲乙双方各执一份，其余四份送相关部门存档。</div>
+                        </p>
+                        <br>
+                        <p>甲方（盖章）：赫章县房屋征收与补偿安置办公室</p>
+                        <p>法定代表人（签字）：</p>
+                        <p>乙方（签字、手印）：</p>
+                        <p>分 管 领 导：</p>
+                        <p>工 作 组 长：</p>
+                        <p>经 办 人：</p>
+                        <p>复 核：</p><br>
+                        <div class="textLeft">签订时间：2017年9月18日</div>
+            </div>
+        </div> -->
+    </section>
+    <script type="text/x-dot-template" id="tpl-agreement-template">
+        <div class="application-template">
+            <div class="thePlacementContainer">
+                <h2><div> <u>{{=it.project_name}}</u> 房屋征收补偿安置协议</div></h2>
+                <div class="titleTwo">赫 <u>{{=it.zone}}</u> 征安字〔 <u>{{=it.year}}</u> 〕 <u>{{=it.agreement_num}}</u> 号</div>
+                <p>
+                    <p>征收补偿部门（以下简称甲方）：</p>
+                    <p>单位名称：赫章县房屋征收与补偿安置办公室</p>
+                    <p>地 址：赫章县县委党校内</p>
+                    <p>法定代表人：何煜达</p>
+                    <p>被征收人（以下简称乙方）：<u>{{=it.target_name}}</u></p>
+                    <p>身份证号码：<u>{{=it.target_idcard}}</u></p>
+                    <p>电 话：<u>{{=it.target_phone}}</u></p>
+                </p>
+                <p class="textIndent">
+                    为推动城市棚户区改造，依法保护城市棚户区内房屋被征收人的合法权益，根据《国务院关于加快棚户区改造工作的意见》（国发〔2013〕25号）、《国有土地上房屋征收与补偿条例》（中华人民共和国国务院令第590号）和《赫章县城市房屋征收与补偿办法》（赫府办发〔2017〕46号），甲、乙双方在平等、自愿、协商一致的基础上，就乙方被征收房屋安置补偿事宜达成如下协议：
+                </p>
+                <p>
+                    <h3>第一条  乙方房屋及附属物情况</h3>
+                    <div class="textIndent">1、乙方房屋土地性质为集体，房屋用途为住房，建筑结构为<u>{{=it.dwellingStructure}}</u> ，建筑面积 <u>{{=it.dwellingArea}}</u> 平方米；房屋用途为商业，建筑结构 <u>{{=it.shopStructure}}</u> ， <u>{{=it.shopArea}}</u> 平方米。</div>
+                    <div class="textIndent">2、乙方房屋附属物见《 <u>{{=it.project_name}}</u> 房屋征收补偿项目明细表》，该明细表属协议组成部分。</div>
+                </p>
+                <p>
+                    <h3>第二条  补偿方式 </h3>
+                    <div class="textIndent">1、乙方自愿选择产权调换方式进行补偿</div>
+                    <div class="textIndent">2、产权调换以征一还一的方式进行，乙方安置面积为被征收房屋建筑面积。</div>
+                </p>
+                <p>
+                    <h3>第三条 房屋及门面选定 </h3>
+                    <div class="textIndent">根据《 <u>{{=it.project_name}}</u> 房屋征收与补偿安置方案》的规定，乙方在 <u>{{=it.building}}</u> 选购 <u>{{=it.chooseHouseNum}}</u> 套房屋。</div>
+                    <div class="textIndent">
+                      {{for (var x in it.chooseHouseInfo){}}
+                        乙方 <u>{{=it.chooseHouseInfo[x].building}}</u> 选购房屋 <u>{{=it.chooseHouseInfo[x].house_use}}</u> 房号为：<u>{{=it.chooseHouseInfo[x].room_number}}</u> ，建筑面积为 <u>{{=it.chooseHouseInfo[x].area}}</u> 平方米;
+                      {{}}}
+                    </div>
+                </p>
+                <p>
+                    <h3>第四条 奖励 </h3>
+                    <div class="textIndent">乙方在甲方规定的期限内腾空房屋，按被征收房屋面积进行奖励。</div>
+                    <div class="textIndent">1、根据签约时间，乙方应得奖励面积 <u>{{=it.awardArea}}</u> 平方米。</div>
+                    <div class="textIndent">2、乙方须在甲方规定的期限内自行通知甲方确认、验收，并由甲方出具房屋腾空验收证明。不按规定时限搬迁的，不予奖励。</div>
+                </p>
+                <p>
+                    <h3>第五条 房屋附属物的补偿 </h3>
+                    <p>
+                        <div class="textIndent">房屋附属物和装饰装修的补偿，按《赫章县城镇建设建构筑物征收补偿标准》（赫发[2013]229）规定进行货币补偿，由甲方一次性给付乙方房屋附属物和装饰装修补偿金￥ <u>{{=it.subsidiary_money}}</u> 元（大写： <u>{{=it.subsidiary_money_cny}}</u> ）。（具体项目见《 <u>{{=it.project_name}}项目名称</u> 房屋征收补偿项目明细表》</div>
+                    </p>
+                </p>
+                <p>
+                    <h3> 第六条 搬迁过渡方式 </h3>
+                    <p>
+                        <div class="textIndent">1、住房临时安置过渡期为两年，以腾空交房申请签字之日起计算。过渡临时安置补助费以被征收房屋的主体面积为依据，按 <u>{{=it.transition_money_standard}}</u> 元/平方米/月计算。即：</div>
+                        <div class="textIndent"> <u>{{=it.confirmHouseArea}}</u> 平方米× <u>{{=it.transition_money_standard}}</u> 元/平方米/月×24个月= <u>{{=it.transition_money}}</u> （大写： <u>{{=it.transition_money_cny}}</u> ）</div>
+                        <div class="textIndent">2、搬家费分为搬出和搬入2次。搬家费以被征收主体房屋合法建筑面积为依据，按 <u>{{=it.removal_money_standard}}</u> 元/平方米/次计算，共计￥ <u>{{=it.removal_money}}</u> 元（大写： <u>{{=it.removal_money_cny}}</u> ）。</div>
+                    </p>
+                </p>
+                <p>
+                    <h3>第七条 结算</h3>
+                    <p class="textIndent">根据《 <u>{{=it.project_name}}项目名称</u> 房屋征收与补偿安置方案》的规定，乙方超安面积为：<u>{{=it.super_area}}</u>平方米，乙方应付给甲方 <u>{{=it.super_money}}</u> 元。</p>
+                    <div class="textIndent">甲方应付乙方金额合计: 过渡费+搬家费+附属物补偿金额+主体房屋货币补偿金额+停产停业费+奖励面积金额:<u>{{=it.transition_money}}</u>元+<u>{{=it.removal_money}}</u>元+<u>{{=it.subsidiary_money}}</u>元+<u>{{=it.mian_house_money}}</u>元+<u>{{=it.suspension_money}}</u>元+<u>{{=it.area_award_money}}</u>元=<u>{{=it.close_money}}</u>元(大写:
+                        <u>{{=it.close_money_cny}}</u>)。</div>
+                    <p class="textIndent">乙方将房屋腾空交给甲方并由甲方开出房屋腾空证明，乙方可以领取附属设施补偿费、搬家费。</p>
+                    {{for (var x in it.removalAwardInfo){}}
+                      <p class="textIndent">乙方在<u>{{=it.removalAwardInfo[x].award_description}}</u>，按<u>{{=it.removalAwardInfo[x].award_type}}{{=it.removalAwardInfo[x].award_price}}</u>元给予搬迁奖励；</p>
+                    {{}}}
+                    <p class="textIndent">{{=it.title}}：<u>{{=it.title_money}}</u>元（大写：<u>{{=it.title_money_cny}}</u>）。
+                        <p>
+                        </p>
+                        <p>
+                            <h3>第八条  搬迁</h3>
+                            <p class="textIndent">
+                                <div class="textIndent">1、乙方在签订协议5日内，将房屋腾空完毕交由甲方拆除。</div>
+                                <div class="textIndent">2、乙方必须在签订协议5日内提供有效的房屋产权证和土地使用证交甲方审查送有关部门注销（若有临时建筑的，还应出具未超过批准期限的临时建筑的使用权证）。</div>
+                                <div class="textIndent">3、甲方对被征收房屋的水电设施按标准给予移户安装补助费。转户、报停、销户、开户手续等乙方自行到有关部门申请办理，并结清已使用的相关费用。</div>
+                                <div class="textIndent">4、乙方被征收房屋上如有产权、债务等纠纷和存在担保物权的，由乙方自行处理，甲方概不负责。</div>
+                            </p>
+                        </p>
+                        <p>
+                            <h3>第九条 违约责任</h3>
+                            <div class="textIndent">乙方不按本合同腾空交付房屋的，甲方可以拆除乙方房屋及附属设施，因此产生的一切费用由乙方承担。</div>
+                            <div class="textIndent">1、若有一方违约造成对方损失者，必须赔偿对方损失。</div>
+                            <div class="textIndent">2、乙方逾期不办理房屋腾空交付手续的，本协议签订之日起 15日作为房屋腾空交付时间，双方不再办理房屋腾空交付手续，乙方未搬离的物品视作放弃，任由甲方处置。</div>
+                        </p>
+                        <p>
+                            <h3>第十条</h3>
+                            <div class="textIndent">本协议在履行过程中发生的争议，由当事人协商解决，协商不成或不愿协商的，可依法向赫章县人民政府申请行政复议或向人民法院提起行政诉讼。</div>
+                        </p>
+                        <p>
+                            <h3>第十一条</h3>
+                            <div class="textIndent">本协议自双方签字盖章之日起生效。本协议一式六分，甲乙双方各执一份，其余四份送相关部门存档。</div>
+                        </p>
+                        <br>
+                        <p>甲方（盖章）：赫章县房屋征收与补偿安置办公室</p>
+                        <p>法定代表人（签字）：</p>
+                        <p>乙方（签字、手印）：</p>
+                        <p>分 管 领 导：</p>
+                        <p>工 作 组 长：</p>
+                        <p>经 办 人：</p>
+                        <p>复 核：</p><br>
+                        <div class="textLeft">签订时间：2017年9月18日</div>
+            </div>
+        </div>
+    </script>
+    <script type="text/javascript" src="../plugin/jquery-1.8.0.min.js"></script>
+    <script type="text/javascript" src="../plugin/doT.js"></script>
+    <script type="text/javascript" src="../script/common.js"></script>
+    <script type="text/javascript" src="../script/placement_agreement.js"></script>
+    <script>
+        // window.addEventListener('apiready', function() {
+        //   var params={
+        //     values:{
+        //       agreement:2
+        //     }
+        //   }
+        //   ajax('index/Mobile/previewAgreement',params,'get',function(ret,err){
+        //     console.log(JSON.stringify(ret))
+        //     console.log(JSON.stringify(err))
+        //   })
+        //     var data = {
+        //         "building": "中央美郡",
+        //         "chooseHouseNum": 1,
+        //         "chooseHouseInfo": [{
+        //             "building": "中央美郡",
+        //             "house_use": 1,
+        //             "room_number": "2-2-3-12",
+        //             "area": "99999999.99",
+        //             "evaluate_price": "99999999.99",
+        //             "money": "99999999.99",
+        //             "total": "玖仟玖佰玖拾玖万玖仟玖佰玖拾玖元玖角玖分"
+        //         }],
+        //         "super_area": "0.00",
+        //         "super_money": "0.00",
+        //         "title": "甲方补乙方金额（元）总合计",
+        //         "title_money": "25555.00",
+        //         "title_money_cny": "贰万伍仟伍佰伍拾伍元整",
+        //         "removalAwardInfo": [{
+        //             "award_description": "踏浪行波",
+        //             "award_type": 1,
+        //             "award_price": "789.00",
+        //             "id": 4
+        //         }, {
+        //             "award_description": "夜雨声烦",
+        //             "award_type": 1,
+        //             "award_price": "789798.00",
+        //             "id": 5
+        //         }, {
+        //             "award_description": "大漠孤烟",
+        //             "award_type": 1,
+        //             "award_price": "456.00",
+        //             "id": 6
+        //         }, {
+        //             "award_description": "飞鸟投林",
+        //             "award_type": 2,
+        //             "award_price": "456.00",
+        //             "id": 7
+        //         }],
+        //         "zone": "片区一",
+        //         "year": "2018",
+        //         "agreement_num": "0003",
+        //         "target_name": "很符合",
+        //         "target_idcard": "124515198645444448",
+        //         "target_phone": "7567567",
+        //         "dwellingStructure": "&nbsp;&nbsp;\/&nbsp;&nbsp;",
+        //         "dwellingArea": "&nbsp;&nbsp;\/&nbsp;&nbsp;",
+        //         "shopStructure": "&nbsp;&nbsp;\/&nbsp;&nbsp;",
+        //         "shopArea": "&nbsp;&nbsp;\/&nbsp;&nbsp;",
+        //         "project_name": "踏浪行波",
+        //         "confirmHouseArea": 0,
+        //         "awardArea": 0,
+        //         "subsidiary_money": "0.00",
+        //         "subsidiary_money_cny": "零元整",
+        //         "transition_money": "0.00",
+        //         "transition_money_standard": "3.00",
+        //         "transition_money_cny": "零元整",
+        //         "removal_money": "0.00",
+        //         "removal_money_standard": "4.00",
+        //         "removal_money_cny": "零元整",
+        //         "total_money": "25555.00",
+        //         "total_money_cny": "贰万伍仟伍佰伍拾伍元整",
+        //         "suspension_money": "0.00",
+        //         "mian_house_money": "0.00",
+        //         "area_award_money": "0.00",
+        //         "close_money": 0,
+        //         "close_money_cny": "零元整"
+        //     }
+        //     var tpl_aggrement_list = doT.template($("#tpl-agreement-template").html());
+        //     $("#agreement-template").html(tpl_aggrement_list(data));
+        // })
+    </script>
+</body>
+
+</html>

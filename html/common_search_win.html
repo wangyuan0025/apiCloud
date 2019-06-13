@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,initial-scale=1.0,width=device-width" />
+  <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+  <title>安置查询</title>
+  <link rel="stylesheet" href="../css/common.css">
+  <style>
+    .search-container{
+      width:90%;
+      height: 10vw;
+    	background-color: #f0f0f0;
+    	border-radius: 1vw;
+      margin: 0 auto;
+      position: relative;
+    }
+    .common-search-box {
+      padding:4vw 0;
+    }
+    .common-search-input{
+      width:100%;
+      height:100%;
+      border-radius: 1vw;
+      border:none;
+      outline: none;
+      background: none;
+      text-indent:12vw;
+      font-size: 4vw;
+    }
+    .common-search-box  .search-icon{
+      top:2vw;
+    }
+  </style>
+</head>
+<body>
+  <div class="search-header">
+    <div class="header flex-wrap" id="header">
+        <p class="arrow-left" tapmode onclick="api.closeWin()">
+        </p>
+        <div class="header-title">房源公开</div>
+    </div>
+    <div class="common-search-box">
+      <p class="search-container">
+        <span class="search-icon"></span>
+        <input type="text" placeholder="请输入关键字查询" class="common-search-input">
+      </p>
+    </div>
+  </div>
+
+  <script type="text/javascript" src="../plugin/jquery-1.8.0.min.js"></script>
+  <script type="text/javascript" src="../script/common.js"></script>
+   <script>
+  window.addEventListener('apiready',function(){
+
+    var params=api.pageParam,
+    height=$('.search-header').outerHeight();
+
+    $('.header-title').html(params.title);
+
+    if(params.type=='policy'||params.type=="announcement"){/*政策公开、公示公告*/
+      openFrame(params.type,'widget://html/policy_frm.html',height,{type:params.type})
+    }else if(params.type=="placement"){
+      openFrame(params.type,'widget://html/placement_list_frm.html',height,{type:params.type})
+
+    }
+    if(params.type=="policy"||params.type=="announcement"){
+      $('body').on('change','.common-search-input',function(e){
+          sendSearchEvent();
+      });
+    }
+    $('.common-search-input').on('keyup', function (event) {
+        if (event.keyCode == "13"||$(this).val().length>=2||$(this).val().length==0) {
+            sendSearchEvent();
+        }
+    });
+    function sendSearchEvent(){
+      var val=$('.common-search-input').val();
+      api.sendEvent({
+          name: 'searchList',
+          extra: {
+              keywords:val
+          }
+      });
+
+    }
+  })
+  </script>
+</body>
+</html>

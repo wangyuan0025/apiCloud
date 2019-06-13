@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,initial-scale=1.0,width=device-width" />
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>补偿明细表</title>
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/agreement.css">
+</head>
+
+<body>
+    <section class="compensation-content">
+
+    </section>
+    <script type="text/x-dot-template" id="tpl-compensation">
+      <div class="compensation-title">
+          {{=it.confrimInfo.target_name}}房屋征收补偿项目明细表
+      </div>
+      <div class="compensation-table-box">
+          <table class="compensation-table">
+
+              <tr>
+                  <td>补偿项目</td>
+                  <td>计算单位</td>
+                  <td>计算数量</td>
+                  <td>补偿单价(元)</td>
+                  <td>补偿金额(元)</td>
+                  <td>备注</td>
+              </tr>
+              {{for(var x in it.houseInfo){}}
+                {{?it.houseInfo[x].unit}}
+                  <tr>
+                      <td>{{=it.houseInfo[x].name}}</td>
+                      <td>{{=it.houseInfo[x].unit}}</td>
+                      <td>{{=it.houseInfo[x].account}}</td>
+                      <td>{{=it.houseInfo[x].unit_price}}</td>
+                      <td>{{=it.houseInfo[x].money}}</td>
+                      <td>{{=it.houseInfo[x].remark}}</td>
+                  </tr>
+                  {{??}}
+                  <tr>
+                      <td colspan="4">{{=it.houseInfo[x].name}}</td>
+                      <td>{{=it.houseInfo[x].money}}</td>
+                      <td></td>
+                  </tr>
+                {{?}}
+
+              {{}}}
+              {{?it.chooseInfo&&it.chooseInfo.title}}
+              <tr>
+                  <td colspan="6">{{=it.chooseInfo.title}}</td>
+              </tr>
+              <tr>
+                  <td>原房面积</td>
+                  <td>选房号</td>
+                  <td>选房总面积</td>
+                  <td>房源总价</td>
+                  <td colspan="2">{{=it.chooseInfo.listTitle}}</td>
+              </tr>
+              <tr>
+                  <td>{{=it.chooseInfo.confirmArea}}</td>
+                  <td>{{=it.chooseInfo.room_number}}</td>
+                  <td>{{=it.chooseInfo.chooseArea}}</td>
+                  <td>{{=it.chooseInfo.choose_house_money}}</td>
+                  <td colspan="2">{{=it.chooseInfo.listTotal}}</td>
+              </tr>
+              {{?}}
+          </table>
+      </div>
+    </script>
+    <script type="text/javascript" src="../plugin/jquery-1.8.0.min.js"></script>
+    <script type="text/javascript" src="../plugin/doT.js"></script>
+    <script type="text/javascript" src="../script/common.js"></script>
+    <script>
+    window.addEventListener('apiready', function() {
+        var params = api.pageParam,
+            data = {
+                values: {
+                    idcard: params.idcard
+                }
+            };
+            console.log(JSON.stringify(params))
+        openLoader();
+        ajax('index/Mobile/confirminfo',data,'get',function(ret,err){
+          if(ret){
+            closeLoader();
+            var tpl_compensation=doT.template($('#tpl-compensation').html());
+            $('.compensation-content').html(tpl_compensation(ret));
+            console.log(JSON.stringify(ret))
+          }
+
+        })
+
+
+    })
+
+    </script>
+</body>
+
+</html>

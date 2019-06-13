@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,initial-scale=1.0,width=device-width" />
+  <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+  <title>政策公开</title>
+  <link rel="stylesheet" href="../css/common.css">
+  <style>
+    .file-img-box{
+      width:7vw;
+      height:8vw;
+    }
+    .file-img-box img{
+      width:100%;
+      height:100%;
+    }
+    .file-title{
+      color:#00043d;
+      font-size: 4vw;
+      margin-left: 2vw;
+    }
+    .icon-arrow-right{
+      width:2vw;
+      height:3vw;
+    }
+    .file-item{
+      padding:2.5vw 5vw;
+    }
+    .file-item .icon-arrow-right{
+      width:3vw;
+      height:4vw;
+    }
+    .icon_download{
+      width:5vw;
+      height:5vw;
+      display: inline-block;
+      background: url(../image/icon_download.png) no-repeat scroll center center /100% 100%;
+    }
+  </style>
+</head>
+<body>
+  <section>
+    <!-- <div class="file-item flex-wrap justify-content align-center border-bottom-1px">
+      <div class="file-info flex-wrap align-center">
+        <div class="file-img-box">
+          <img src="../image/icon_return.png" alt="">
+        </div>
+        <p class="file-title">返回上一级</p>
+      </div>
+    </div> -->
+    <div class="file-list" id="file-list">
+
+      <!-- <div class="file-item flex-wrap justify-content align-center border-bottom-1px">
+        <div class="file-info flex-wrap align-center">
+          <div class="file-img-box">
+            <img src="../image/icon_folder.png" alt="">
+          </div>
+          <p class="file-title">文件夹</p>
+        </div>
+        <span class="icon-arrow-right"></span>
+      </div> -->
+
+
+      <!-- </div> -->
+
+    </div>
+  </section>
+  <!-- <script type="text/x-dot-template" id="tpl-file-list">
+
+  {{for(var x in it){}}
+        <div class="file-item flex-wrap justify-content align-center border-bottom-1px" data-id="{{it[x].file_id}}" data-name="{{it[x].file_name}}">
+          <div class="file-info flex-wrap align-center">
+            <div class="file-img-box">
+            {{?it[x].ext=="pdf"}}
+              <img src="../image/pdf.png" alt="">
+            {{??it[x].ext=="doc"||it[x].ext=="docx"}}
+              <img src="../image/word.png" alt="">
+            {{??it[x].ext=="xls"||it[x].ext=="xlsx"}}
+            <img src="../image/excel.png" alt="">
+            {{??it[x].ext=="bmp"||it[x].ext=="jpg"||it[x].ext=="jpeg"||it[x].ext=="png"||it[x].ext=="gif"}}
+            <img src="../image/icon_file_image.png" alt="">
+            {{??}}
+              <img src="../image/icon_file_unknow.png" alt="">
+            {{?}}
+            </div>
+            <p class="file-title">{{=it[x].file_name}}</p>
+          </div>
+          <span class="icon_download"></span>
+        </div>
+    {{}}}
+  </script> -->
+  <script type="text/x-dot-template" id="tpl-file-list">
+  {{for(var x in it){}}
+  <div class="file-item flex-wrap justify-content align-center border-bottom-1px" data-id="{{=it[x].file_id}}" data-name="{{=it[x].file_name}}">
+    <div class="file-info flex-wrap align-center">
+      <div class="file-img-box">
+        {{? it[x].ext=="jpg"||it[x].ext=="jpeg"||it[x].ext=="png"||it[x].ext=="gif"}}
+          <img src="../image/icon_file_image.png" alt="">
+          {{?? it[x].ext=="doc"||it[x].ext=="docx"||it[x].ext=="txt"}}
+          <img src="../image/word.png" alt="">
+          {{?? it[x].ext=="xls"||it[x].ext=="xlsx"}}
+          <img src="../image/excel.png" alt="">
+          {{?? it[x].ext=="pdf"}}
+          <img src="../image/pdf.png" alt="">
+          {{??}}
+          <img src="../image/icon_file_unknow.png" alt="">
+        {{?}}
+      </div>
+      <p class="file-title">{{=it[x].file_name}}</p>
+    </div>
+    <span class="icon_download"></span>
+  </div>
+  {{}}}
+
+  </script>
+
+  <script type="text/javascript" src="../plugin/jquery-1.8.0.min.js"></script>
+  <script type="text/javascript" src="../script/common.js"></script>
+  <script type="text/javascript" src="../plugin/doT.js"></script>
+  <script type="text/javascript" src="../script/file_list.js"></script>
+
+</body>
+</html>
